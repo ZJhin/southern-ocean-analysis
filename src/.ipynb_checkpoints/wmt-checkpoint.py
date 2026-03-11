@@ -484,28 +484,28 @@ def load_data_in_range(start_year, end_year, file_pattern):
 
     return subset_dataset
 
-# def get_lat_lon_coords(dataset: xr.Dataset) -> tuple:
-#     """
-#     Determine the latitude and longitude coordinate names in an xarray dataset.
+def get_lat_lon_coords(dataset: xr.Dataset) -> tuple:
+    """
+    Determine the latitude and longitude coordinate names in an xarray dataset.
 
-#     Args:
-#         dataset (xr.Dataset): The dataset to check.
+    Args:
+        dataset (xr.Dataset): The dataset to check.
 
-#     Returns:
-#         tuple: A tuple containing the names of the latitude and longitude coordinates (lat_coord, lon_coord).
-#     """
-#     lat_coord = (
-#         'nav_lat' if 'nav_lat' in dataset.coords else
-#         'latitude' if 'latitude' in dataset.coords else
-#         'lat' if 'lat' in dataset.coords else None
-#     )
-#     lon_coord = (
-#         'nav_lon' if 'nav_lon' in dataset.coords else
-#         'longitude' if 'longitude' in dataset.coords else
-#         'lon' if 'lon' in dataset.coords else None
-#     )
+    Returns:
+        tuple: A tuple containing the names of the latitude and longitude coordinates (lat_coord, lon_coord).
+    """
+    lat_coord = (
+        'nav_lat' if 'nav_lat' in dataset.coords else
+        'latitude' if 'latitude' in dataset.coords else
+        'lat' if 'lat' in dataset.coords else None
+    )
+    lon_coord = (
+        'nav_lon' if 'nav_lon' in dataset.coords else
+        'longitude' if 'longitude' in dataset.coords else
+        'lon' if 'lon' in dataset.coords else None
+    )
 
-#     if not lat_coord or not lon_coord:
-#         raise ValueError("Latitude and/or longitude coordinates not found in the dataset.")
+    if not lat_coord or not lon_coord:
+        raise ValueError("Latitude and/or longitude coordinates not found in the dataset.")
 
-#     return lat_coord, lon_coord
+    return lat_coord, lon_coord
